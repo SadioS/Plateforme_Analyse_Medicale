@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <metacharset = "utf 8">
+    <link rel="stylesheet" href="accueil.css"/>
+    <title>e-SMed Espace personnel</title>
+  </head>
+
+  <body id='pdf'>
+    <div class='container'>
+    
+      <div class='formContainer'>
+    
+        <h2>Bienvenue dans votre espace personnel {{nom}} </h2>
+        <section id='tab'>
+        <p>Voici les résultats de votre dernier test
+            <p> NUMERATION GLOBULAIRE</p>
+        <div class='gauche'>
+            <p>Hématies    =      5.23<br/>Hémoglobine    =      14.2<br/>Hématocrite    =      40.8 <br/>VGM            =      78.0<br/>TCMH           =      27.2<br/>CCMH =      34.8<br/>Leucocytes     =      7.33<br/></p>
+        </div>
+        
+            <p> FORMULE LEUCOCYTAIRE</p>
+            
+        <div class='gauche'>
+            <p>PN          =         3.14<br/>PE          =         0.71<br/>PB          =         0.03<br/>Lymphocytes =         2.82<br/>Monocytes   =         0.63<br/></p>
+        </div>
+        
+        </p>
+        </section>
+  </body>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.1.135/jspdf.min.js"></script>
+  
+  <script>
+   var doc = new jsPDF()
+   var div = document.querySelector("#tab")
+   doc.fromHTML(div, 15, 15)
+   doc.save("résultat.pdf")
+   </script>
+   
+   <div class="bouton">
+              <form method="get" action="/choix">
+                <input type="submit" value="RETOUR" id='logbouton'/>
+                </form>
+              </div>
+              
+              <div class="bouton">
+              <form method="get" action="/">
+                <input type="submit" value="ACCUEIL" id='logbouton'/>
+                </form>
+              </div>
+              
+              <div class="bouton">
+              <form method="get" action="/">
+                <input type="submit" value="Se déconnecter" id='logbouton'/>
+                </form>
+              </div>
+</html>  
